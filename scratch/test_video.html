@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { margin: 0; background: #000; display: flex; align-items: center; justify-content: center; height: 100vh; }
+    video { width: 100vw; height: 100vh; object-fit: contain; }
+  </style>
+</head>
+<body>
+  <video id="v" src="/assets/logo-anime.mp4" autoplay muted playsinline></video>
+  <script>
+    const v = document.getElementById('v');
+    v.onloadedmetadata = () => {
+      console.log('Video size:', v.videoWidth, v.videoHeight, v.duration);
+      document.title = v.videoWidth + 'x' + v.videoHeight;
+    };
+  </script>
+</body>
+</html>
