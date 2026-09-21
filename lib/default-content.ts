@@ -14,5 +14,5 @@ export const defaultContent: SiteContent = {
     {id:'twilight-waters',title:'Reflections at blue hour',category:'CHARACTER & STORY / 04',image:'/assets/gallery-story.jpg',alt:'A protagonist in traditional saree looking out from a wooden houseboat window on serene backwaters'},
   ]},
   news:[{id:'beginning',title:'A new home for stories in Kochi.',category:'OUR BEGINNING',date:'2026',image:'/assets/ub-logo.png',body:'UB Entertainment is established in Kochi, Keralam. Our story begins with movies, short films, music videos, and a belief in the power of storytelling.'}],
-  contact:{location:'Kochi, Keralam',email:'',phone:'+91 95398 66838',whatsapp:'+91 95398 66838',instagram:'',youtube:''},
+  contact:{location:'Kochi, Keralam',email:'',phone:'+91 81370 76051',whatsapp:'+91 81370 76051',instagram:'',youtube:''},
 };
