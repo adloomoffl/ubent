@@ -8,9 +8,10 @@ export const defaultContent: SiteContent = {
     { id:'music-videos',title:'Music videos',image:'/assets/music.jpg',alt:'A singer performing beneath golden stage lights',description:'Where sound finds its visual language. Music brought to life through rhythm, emotion, and imagery.',tags:'MUSIC · MOVEMENT · MOOD' },
   ],
   gallery: { description:'A glimpse of the visual worlds that inspire us.', note:'Representative imagery. UB project stills coming soon.', items:[
-    {id:'journey',title:'The journey within',category:'VISUAL INSPIRATION / 01',image:'/assets/scenery.jpg',alt:'A ribbon of road winding through a vast mountain landscape'},
-    {id:'frame',title:'Behind the frame',category:'ON SET / 02',image:'/assets/hero.jpg',alt:'The craft behind a film: a camera and crew working after dark'},
-    {id:'rhythm',title:'Feel the rhythm',category:'MUSIC / 03',image:'/assets/music.jpg',alt:'A live performance captured in warm golden light'},
+    {id:'dawn-serenade',title:'Echoes of the Western Ghats',category:'CINEMATIC HORIZONS / 01',image:'/assets/gallery-dawn.jpg',alt:'A solitary figure standing above mist-covered valleys in the Western Ghats at golden sunrise'},
+    {id:'behind-the-lens',title:'Behind the frame',category:'ON SET PRODUCTION / 02',image:'/assets/gallery-onset.jpg',alt:'Cinema camera rig and film crew shooting a night sequence on a heritage street'},
+    {id:'stage-symphony',title:'Soul in the spotlight',category:'MUSIC & RHYTHM / 03',image:'/assets/gallery-music.jpg',alt:'Performer singing into a vintage microphone under dramatic golden stage lights and smoke'},
+    {id:'twilight-waters',title:'Reflections at blue hour',category:'CHARACTER & STORY / 04',image:'/assets/gallery-story.jpg',alt:'A protagonist in traditional saree looking out from a wooden houseboat window on serene backwaters'},
   ]},
   news:[{id:'beginning',title:'A new home for stories in Kochi.',category:'OUR BEGINNING',date:'2026',image:'/assets/ub-logo.png',body:'UB Entertainment is established in Kochi, Keralam. Our story begins with movies, short films, music videos, and a belief in the power of storytelling.'}],
   contact:{location:'Kochi, Keralam',email:'',phone:'+91 95398 66838',whatsapp:'+91 95398 66838',instagram:'',youtube:''},
