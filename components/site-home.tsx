@@ -57,7 +57,7 @@ export default function Home({content}:{content:SiteContent}) {
     </header>
     <main id="main">
       <section className="hero wrap" id="top" aria-labelledby="hero-title">
-        <div className="eyebrow hero-eyebrow"><span>Independent production house</span><span>Kochi, Kerala · Est. 2026</span></div>
+        <div className="eyebrow hero-eyebrow"><span>Independent production house</span><span>Kochi, kerala · Est. 2026</span></div>
         <div className="hero-heading"><h1 id="hero-title">{content.hero.line1}<br/>{content.hero.line2} <span>{content.hero.accent}</span></h1><div className="hero-aside"><p className="preserve-lines">{content.hero.subtitle}</p><a className="text-link" href="#gallery">Explore our world <ArrowDown size={18}/></a></div></div>
         <div className="hero-frame">
           <video
@@ -118,7 +118,7 @@ export default function Home({content}:{content:SiteContent}) {
           <p className="lead">{content.about.lead}</p>
           <p>{content.about.body}</p>
           <div className="about-details">
-            <span>BASED IN<strong>Kochi, Kerala</strong></span>
+            <span>BASED IN<strong>Kochi, kerala</strong></span>
             <span>ESTABLISHED<strong>2026</strong></span>
             <span>FOUNDED BY<strong>{content.about.founder || "Ukbath"}</strong></span>
           </div>
