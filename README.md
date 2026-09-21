@@ -1,6 +1,6 @@
 # UB Entertainment
 
-Standard Next.js 16 App Router website for the Kochi, kerala production company established in 2026. Includes a protected admin editor with username-and-password login.
+Standard Next.js 16 App Router website for the Kochi, Keralam production company established in 2026. Includes a protected admin editor with username-and-password login.
 
 ## Open locally
 

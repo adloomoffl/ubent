@@ -57,7 +57,7 @@ export default function Home({content}:{content:SiteContent}) {
     </header>
     <main id="main">
       <section className="hero wrap" id="top" aria-labelledby="hero-title">
-        <div className="eyebrow hero-eyebrow"><span>Independent production house</span><span>Kochi, kerala · Est. 2026</span></div>
+        <div className="eyebrow hero-eyebrow"><span>Independent production house</span><span>Kochi, Keralam · Est. 2026</span></div>
         <div className="hero-heading"><h1 id="hero-title">{content.hero.line1}<br/>{content.hero.line2} <span>{content.hero.accent}</span></h1><div className="hero-aside"><p className="preserve-lines">{content.hero.subtitle}</p><a className="text-link" href="#gallery">Explore our world <ArrowDown size={18}/></a></div></div>
         <div className="hero-frame">
           <video
@@ -118,7 +118,7 @@ export default function Home({content}:{content:SiteContent}) {
           <p className="lead">{content.about.lead}</p>
           <p>{content.about.body}</p>
           <div className="about-details">
-            <span>BASED IN<strong>Kochi, kerala</strong></span>
+            <span>BASED IN<strong>Kochi, Keralam</strong></span>
             <span>ESTABLISHED<strong>2026</strong></span>
             <span>FOUNDED BY<strong>{content.about.founder || "Ukbath"}</strong></span>
           </div>
@@ -152,7 +152,7 @@ export default function Home({content}:{content:SiteContent}) {
         <div className="contact-bottom"><p>Let’s make something<br/>worth watching.</p><div className="contact-location"><span className="eyebrow">Find us in</span><span>{content.contact.location}<br/>India</span></div><div className="contact-info"><span className="eyebrow">Let’s connect</span>{content.contact.email && <a href={'mailto:'+content.contact.email}>{content.contact.email}</a>}{content.contact.phone && <a href={'tel:'+content.contact.phone.replace(/[^+0-9]/g,'')}>{content.contact.phone}</a>}{whatsappUrl && <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="whatsapp-contact-link"><WhatsAppIcon size={16}/><span>WhatsApp ↗</span></a>}{content.contact.instagram && <a href={content.contact.instagram} target="_blank" rel="noreferrer">Instagram ↗</a>}{content.contact.youtube && <a href={content.contact.youtube} target="_blank" rel="noreferrer">YouTube ↗</a>}{!content.contact.email && !content.contact.phone && !whatsappUrl && !content.contact.instagram && !content.contact.youtube && <><span>Contact details coming soon.</span><p>Email, phone, and social links<br/>will be added here.</p></>}</div></div>
       </section>
     </main>
-    <footer className="wrap footer"><div className="footer-top"><a href="#top" className="footer-wordmark" aria-label="UB Entertainment home">UB ENTERTAINMENT</a><a href="#top" className="back-top">Back to top <ArrowUpRight size={17}/></a></div><div className="footer-bottom"><span>© 2026 UB Entertainment</span><a href="/admin" className="admin-entry-link">Admin</a><span>KOCHI, KERALA · EST. 2026</span><details className="credits"><summary>Image credits</summary><div><p>Representative imagery from Unsplash:</p><a href="https://unsplash.com/photos/a-group-of-people-standing-around-a-camera-iXYP5bkc-Bs" target="_blank" rel="noreferrer">Film crew — Oleg Brovchenko</a><a href="https://unsplash.com/photos/a-winding-road-in-the-middle-of-a-desert-yYjk2bfqgUU" target="_blank" rel="noreferrer">Landscape — Weichao Deng</a><a href="https://unsplash.com/photos/a-man-singing-on-stage-with-yellow-lights-CbnG4eGAtz8" target="_blank" rel="noreferrer">Music — Pravin Shinde</a></div></details></div></footer>
+    <footer className="wrap footer"><div className="footer-top"><a href="#top" className="footer-wordmark" aria-label="UB Entertainment home">UB ENTERTAINMENT</a><a href="#top" className="back-top">Back to top <ArrowUpRight size={17}/></a></div><div className="footer-bottom"><span>© 2026 UB Entertainment</span><a href="/admin" className="admin-entry-link">Admin</a><span>KOCHI, KERALAM · EST. 2026</span><details className="credits"><summary>Image credits</summary><div><p>Representative imagery from Unsplash:</p><a href="https://unsplash.com/photos/a-group-of-people-standing-around-a-camera-iXYP5bkc-Bs" target="_blank" rel="noreferrer">Film crew — Oleg Brovchenko</a><a href="https://unsplash.com/photos/a-winding-road-in-the-middle-of-a-desert-yYjk2bfqgUU" target="_blank" rel="noreferrer">Landscape — Weichao Deng</a><a href="https://unsplash.com/photos/a-man-singing-on-stage-with-yellow-lights-CbnG4eGAtz8" target="_blank" rel="noreferrer">Music — Pravin Shinde</a></div></details></div></footer>
     {whatsappUrl && (
       <aside className="whatsapp-floating-widget" aria-label="WhatsApp quick contact">
         {!popDismissed && (
