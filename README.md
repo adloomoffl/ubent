@@ -1,4 +1,4 @@
-# UB Entertainment
+# UB Entertainments
 
 Standard Next.js 16 App Router website for the Kochi, Keralam production company established in 2026. Includes a protected admin editor with username-and-password login.
 
@@ -37,7 +37,7 @@ Commands: `npm run dev` for local development; `npm run build` followed by `npm 
 ## Content to add
 
 - Official email address, phone number, and social profiles in the Contact section.
-- UB Entertainment project stills to replace the clearly labeled representative gallery images.
+- UB Entertainments project stills to replace the clearly labeled representative gallery images.
 - Actual project announcements and event dates as they become available.
 
 The establishment announcement uses the company facts supplied for this website. No portfolio credits, testimonials, clients, or event dates have been invented.

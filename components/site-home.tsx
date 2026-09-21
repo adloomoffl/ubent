@@ -25,7 +25,7 @@ export default function Home({content}:{content:SiteContent}) {
   const [popDismissed, setPopDismissed] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const whatsappUrl = getWhatsAppUrl(content.contact.whatsapp, "Hi UB Entertainment, I would like to inquire about your production services.");
+  const whatsappUrl = getWhatsAppUrl(content.contact.whatsapp, "Hi UB Entertainments, I would like to inquire about your production services.");
 
   const toggleSound = () => {
     if (videoRef.current) {
@@ -48,7 +48,7 @@ export default function Home({content}:{content:SiteContent}) {
     <a className="skip-link" href="#main">Skip to content</a>
     <header className="site-header">
       <div className="site-header-inner wrap">
-        <a className="brand" href="#top" aria-label="UB Entertainment home"><img src="/assets/ub-logo-transparent.png" alt="UB Entertainment" width="92" height="60"/></a>
+        <a className="brand" href="#top" aria-label="UB Entertainments home"><img src="/assets/ub-logo-transparent.png" alt="UB Entertainments" width="92" height="60"/></a>
         <nav className="desktop-nav" aria-label="Main navigation">{links.map(([name,id]) => <a href={`#${id}`} key={id}>{name}</a>)}</nav>
         <a className="pill header-contact" href="#contact">Let’s talk <ArrowUpRight size={17}/></a>
         <button className="menu-toggle" aria-expanded={menuOpen} aria-controls="mobile-nav" aria-label={menuOpen ? "Close menu" : "Open menu"} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X size={20}/> : <Menu size={20}/>}</button>
@@ -70,10 +70,10 @@ export default function Home({content}:{content:SiteContent}) {
             muted
             playsInline
             preload="auto"
-            aria-label="UB Entertainment intro animation"
+            aria-label="UB Entertainments intro animation"
           />
           <div className="hero-frame-top">
-            <span>UB ENTERTAINMENT</span>
+            <span>UB ENTERTAINMENTS</span>
             <div className="hero-frame-actions">
               <button
                 type="button"
@@ -87,7 +87,7 @@ export default function Home({content}:{content:SiteContent}) {
               <span>STORIES IN MOTION</span>
             </div>
           </div>
-          <div className="hero-frame-bottom"><span>From the first idea.<br/>To the final frame.</span><a href="#about" className="round-link" aria-label="Discover UB Entertainment"><ArrowDown/></a></div>
+          <div className="hero-frame-bottom"><span>From the first idea.<br/>To the final frame.</span><a href="#about" className="round-link" aria-label="Discover UB Entertainments"><ArrowDown/></a></div>
         </div>
         <div className="frame-caption"><span>A new perspective. A new beginning.</span><span>{content.hero.imageNote}</span></div>
       </section>
@@ -129,7 +129,7 @@ export default function Home({content}:{content:SiteContent}) {
         <div className="section-heading reveal"><h2 id="services-title">Different formats.<br/><span className="gold">The same passion.</span></h2><p>From a world on the big screen to a story in a few minutes. We make every frame count.</p></div>
         <div className="services-grid">{content.services.map((service,index) => <article className="service-card reveal" key={service.id}>
           <div className="service-image"><img src={service.image} alt={service.alt} loading="lazy" width="700" height="500"/><span className="image-number">{String(index+1).padStart(2,"0")}</span></div>
-          <div className="service-title"><h3>{service.title}</h3><a className="service-enquire" href={whatsappUrl ? getWhatsAppUrl(content.contact.whatsapp, `Hi UB Entertainment, I would like to inquire about your ${service.title.toLowerCase()} services.`) : "#contact"} target={whatsappUrl ? "_blank" : undefined} rel={whatsappUrl ? "noopener noreferrer" : undefined} aria-label={`Enquire about ${service.title.toLowerCase()}`}><ArrowUpRight size={23}/></a></div>
+          <div className="service-title"><h3>{service.title}</h3><a className="service-enquire" href={whatsappUrl ? getWhatsAppUrl(content.contact.whatsapp, `Hi UB Entertainments, I would like to inquire about your ${service.title.toLowerCase()} services.`) : "#contact"} target={whatsappUrl ? "_blank" : undefined} rel={whatsappUrl ? "noopener noreferrer" : undefined} aria-label={`Enquire about ${service.title.toLowerCase()}`}><ArrowUpRight size={23}/></a></div>
           <p>{service.description}</p><span className="service-tags">{service.tags}</span>
         </article>)}</div>
       </section>
@@ -152,7 +152,7 @@ export default function Home({content}:{content:SiteContent}) {
         <div className="contact-bottom"><p>Let’s make something<br/>worth watching.</p><div className="contact-location"><span className="eyebrow">Find us in</span><span>{content.contact.location}<br/>India</span></div><div className="contact-info"><span className="eyebrow">Let’s connect</span>{content.contact.email && <a href={'mailto:'+content.contact.email}>{content.contact.email}</a>}{content.contact.phone && <a href={'tel:'+content.contact.phone.replace(/[^+0-9]/g,'')}>{content.contact.phone}</a>}{whatsappUrl && <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="whatsapp-contact-link"><WhatsAppIcon size={16}/><span>WhatsApp ↗</span></a>}{content.contact.instagram && <a href={content.contact.instagram} target="_blank" rel="noreferrer">Instagram ↗</a>}{content.contact.youtube && <a href={content.contact.youtube} target="_blank" rel="noreferrer">YouTube ↗</a>}{!content.contact.email && !content.contact.phone && !whatsappUrl && !content.contact.instagram && !content.contact.youtube && <><span>Contact details coming soon.</span><p>Email, phone, and social links<br/>will be added here.</p></>}</div></div>
       </section>
     </main>
-    <footer className="wrap footer"><div className="footer-top"><a href="#top" className="footer-wordmark" aria-label="UB Entertainment home">UB ENTERTAINMENT</a><a href="#top" className="back-top">Back to top <ArrowUpRight size={17}/></a></div><div className="footer-bottom"><span>© 2026 UB Entertainment</span><a href="/admin" className="admin-entry-link">Admin</a><span>KOCHI, KERALAM · EST. 2026</span><details className="credits"><summary>Image credits</summary><div><p>Representative imagery from Unsplash:</p><a href="https://unsplash.com/photos/a-group-of-people-standing-around-a-camera-iXYP5bkc-Bs" target="_blank" rel="noreferrer">Film crew — Oleg Brovchenko</a><a href="https://unsplash.com/photos/a-winding-road-in-the-middle-of-a-desert-yYjk2bfqgUU" target="_blank" rel="noreferrer">Landscape — Weichao Deng</a><a href="https://unsplash.com/photos/a-man-singing-on-stage-with-yellow-lights-CbnG4eGAtz8" target="_blank" rel="noreferrer">Music — Pravin Shinde</a></div></details></div></footer>
+    <footer className="wrap footer"><div className="footer-top"><a href="#top" className="footer-wordmark" aria-label="UB Entertainments home">UB ENTERTAINMENTS</a><a href="#top" className="back-top">Back to top <ArrowUpRight size={17}/></a></div><div className="footer-bottom"><span>© 2026 UB Entertainments</span><a href="/admin" className="admin-entry-link">Admin</a><span>KOCHI, KERALAM · EST. 2026</span><details className="credits"><summary>Image credits</summary><div><p>Representative imagery from Unsplash:</p><a href="https://unsplash.com/photos/a-group-of-people-standing-around-a-camera-iXYP5bkc-Bs" target="_blank" rel="noreferrer">Film crew — Oleg Brovchenko</a><a href="https://unsplash.com/photos/a-winding-road-in-the-middle-of-a-desert-yYjk2bfqgUU" target="_blank" rel="noreferrer">Landscape — Weichao Deng</a><a href="https://unsplash.com/photos/a-man-singing-on-stage-with-yellow-lights-CbnG4eGAtz8" target="_blank" rel="noreferrer">Music — Pravin Shinde</a></div></details></div></footer>
     {whatsappUrl && (
       <aside className="whatsapp-floating-widget" aria-label="WhatsApp quick contact">
         {!popDismissed && (
@@ -167,7 +167,7 @@ export default function Home({content}:{content:SiteContent}) {
             </button>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="whatsapp-pop-body">
               <span className="whatsapp-pop-badge">● Online</span>
-              <span className="whatsapp-pop-title">UB Entertainment</span>
+              <span className="whatsapp-pop-title">UB Entertainments</span>
               <span className="whatsapp-pop-msg">Chat with us on WhatsApp 👋</span>
             </a>
           </div>
@@ -177,7 +177,7 @@ export default function Home({content}:{content:SiteContent}) {
           target="_blank"
           rel="noopener noreferrer"
           className="whatsapp-pop-btn"
-          aria-label="Chat with UB Entertainment on WhatsApp"
+          aria-label="Chat with UB Entertainments on WhatsApp"
           id="whatsapp-chat-button"
         >
           <span className="whatsapp-pulse-ring" aria-hidden="true" />

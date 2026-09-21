@@ -6,7 +6,7 @@ The site remains local at http://localhost:3001. Google sign-in itself needs an 
 
 ## One-time Google setup
 
-1. Open the [Google Cloud Console](https://console.cloud.google.com/) and select or create a project for UB Entertainment.
+1. Open the [Google Cloud Console](https://console.cloud.google.com/) and select or create a project for UB Entertainments.
 2. In **Google Auth Platform**, configure the app branding and OAuth consent screen. Use an External audience for the Gmail account. If the app is in testing, add **ubentertainments2026@gmail.com** as a test user.
 3. Create an OAuth client with application type **Web application**.
 4. Set the authorized JavaScript origin to:
