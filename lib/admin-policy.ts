@@ -20,5 +20,19 @@ export function isAdminSession(session: unknown): boolean {
 }
 
 export function isLocalOrigin(origin: string | null): boolean {
-  return origin === 'http://localhost:3001';
+  return origin !== null && origin === (configuredAdminOrigin() ?? (!process.env.VERCEL ? 'http://localhost:3001' : null));
+}
+
+
+// Trust the configured UB origin, never a request Host header.
+export function configuredAdminOrigin(): string | null {
+  try {
+    const value = process.env.NEXTAUTH_URL;
+    if (!value) return null;
+    const url = new URL(value);
+    if (url.username || url.password || url.search || url.hash || url.pathname !== '/') return null;
+    if (!process.env.VERCEL && url.origin === 'http://localhost:3001') return url.origin;
+    if (url.protocol === 'https:' && !url.port && ['ubentertainments.in', 'www.ubentertainments.in'].includes(url.hostname)) return url.origin;
+    return null;
+  } catch { return null; }
 }

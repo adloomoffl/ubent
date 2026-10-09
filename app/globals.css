@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
-@import 'shadcn/tailwind.css';
+@import './shadcn-utilities.css';
 @font-face{font-family:Manrope;src:url('/assets/manrope-400.ttf') format('truetype');font-weight:400;font-display:swap}
 @font-face{font-family:Manrope;src:url('/assets/manrope-500.ttf') format('truetype');font-weight:500;font-display:swap}
 @font-face{font-family:Manrope;src:url('/assets/manrope-600.ttf') format('truetype');font-weight:600;font-display:swap}
@@ -38,3 +38,4 @@
 @keyframes pop-in{from{opacity:0;transform:scale(.6) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
 @keyframes pop-pulse{0%{transform:scale(.85);opacity:1}70%{transform:scale(1.35);opacity:0}100%{transform:scale(1.4);opacity:0}}
 @media(max-width:760px){.whatsapp-floating-widget{bottom:18px;right:18px}.whatsapp-pop-bubble{display:none}.whatsapp-pop-btn{width:54px;height:54px}}
+

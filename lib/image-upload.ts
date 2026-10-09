@@ -1,11 +1,11 @@
 import sharp from 'sharp';
-export const MAX_IMAGE_BYTES = 8 * 1024 * 1024;
+export const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
 export const MAX_IMAGE_PIXELS = 40_000_000;
 export const IMAGE_MIME_TYPES = ['image/jpeg','image/png','image/webp'];
 export const UPLOAD_FILENAME = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}\.webp$/;
 export class InvalidImage extends Error {}
 export async function prepareImage(input:Buffer) {
-  if(!input.length || input.length>MAX_IMAGE_BYTES) throw new InvalidImage('Choose an image smaller than 8 MB.');
+  if(!input.length || input.length>MAX_IMAGE_BYTES) throw new InvalidImage('Choose an image smaller than 4 MB.');
   const jpeg=input.subarray(0,3).equals(Buffer.from([255,216,255]));
   const png=input.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10]));
   const webp=input.toString('ascii',0,4)==='RIFF' && input.toString('ascii',8,12)==='WEBP';
@@ -20,3 +20,4 @@ export async function prepareImage(input:Buffer) {
     throw new InvalidImage('This image could not be read. Use a JPG, PNG, or WebP photo up to 40 megapixels.');
   }
 }
+
