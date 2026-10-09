@@ -9,7 +9,7 @@ const json = (body: unknown, status = 200) => Response.json(body,{status,headers
 export async function GET() {
   if (!await adminSession()) return json({error:'Sign in with the administrator account.'},401);
   try { return json(await contentStore.read()); }
-  catch { return json({error:'Saved content could not be loaded. Please check the local data file.'},500); }
+  catch { return json({error:'Saved content could not be loaded. Please try again shortly.'},500); }
 }
 export async function PUT(request: Request) {
   if (!await adminSession()) return json({error:'Your session has expired. Sign in again before saving.'},401);
@@ -36,3 +36,4 @@ export async function PUT(request: Request) {
     return json({error:'Unable to save. Your edits are still on this page; please try again.'},500);
   }
 }
+

@@ -54,3 +54,4 @@ test('valid login is verified and every username shares an atomic attempt budget
   assert.equal(await authenticateHostedPassword({ username: 'owner', password }, config), false);
   assert.equal(new Set(keys).size, 1);
 });
+
