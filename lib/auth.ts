@@ -6,9 +6,11 @@ import GoogleProvider from 'next-auth/providers/google';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { ADMIN_EMAIL, ADMIN_USERNAME, LOCAL_ADMIN_ID, isAllowedGoogleAccount, isAdminSession } from './admin-policy';
 import { authenticatePassword, passwordVersion, validPasswordHash } from './password-auth';
+import { configuredAdminOrigin } from './admin-policy';
+import { authenticateHostedPassword, redisIsConfigured } from './hosted-password';
 
-const baseConfigured = () => Boolean(process.env.NEXTAUTH_SECRET && process.env.NEXTAUTH_SECRET.length>=32 && process.env.NEXTAUTH_URL==='http://localhost:3001');
-export const passwordIsConfigured = () => baseConfigured() && validPasswordHash(process.env.ADMIN_PASSWORD_HASH ?? '');
+const baseConfigured = () => Boolean(process.env.NEXTAUTH_SECRET && process.env.NEXTAUTH_SECRET.length>=32 && configuredAdminOrigin());
+export const passwordIsConfigured = () => baseConfigured() && (!process.env.VERCEL || redisIsConfigured()) && validPasswordHash(process.env.ADMIN_PASSWORD_HASH ?? '');
 export const googleIsConfigured = () => baseConfigured() && Boolean(process.env.GOOGLE_CLIENT_ID?.trim() && process.env.GOOGLE_CLIENT_SECRET?.trim());
 export const authIsConfigured = () => passwordIsConfigured() || googleIsConfigured();
 const currentPasswordVersion = () => passwordVersion(process.env.ADMIN_PASSWORD_HASH ?? '');
@@ -21,7 +23,9 @@ export const authOptions: NextAuthOptions = {
       async authorize(credentials) {
         if(!passwordIsConfigured() || typeof credentials?.username!=='string' || typeof credentials?.password!=='string') return null;
         if(credentials.username.length>100 || credentials.password.length>256) return null;
-        const valid=await authenticatePassword({username:credentials.username,password:credentials.password},{username:ADMIN_USERNAME,hash:process.env.ADMIN_PASSWORD_HASH!,directory:path.join(process.cwd(),'data')});
+        const valid=process.env.VERCEL
+          ? await authenticateHostedPassword({username:credentials.username,password:credentials.password},{username:ADMIN_USERNAME,hash:process.env.ADMIN_PASSWORD_HASH!})
+          : await authenticatePassword({username:credentials.username,password:credentials.password},{username:ADMIN_USERNAME,hash:process.env.ADMIN_PASSWORD_HASH!,directory:path.join(process.cwd(),'data')});
         return valid ? {id:LOCAL_ADMIN_ID,name:ADMIN_USERNAME,email:null,passwordProof:currentPasswordVersion()} : null;
       },
     }),
@@ -60,7 +64,8 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
     async redirect({url}) {
-      const base='http://localhost:3001';
+      const base=configuredAdminOrigin();
+      if (!base) return '/admin/login';
       if(url.startsWith('/') && !url.startsWith('//')) return base+url;
       try{if(new URL(url).origin===base)return url;}catch{/* reject invalid destinations */}
       return base+'/admin';
@@ -72,3 +77,5 @@ export async function adminSession() {
   const session=await getServerSession(authOptions);
   return isAdminSession(session) ? session : null;
 }
+
+
