@@ -11,6 +11,14 @@ import { authenticateHostedPassword, redisIsConfigured } from './hosted-password
 
 const baseConfigured = () => Boolean(process.env.NEXTAUTH_SECRET && process.env.NEXTAUTH_SECRET.length>=32 && configuredAdminOrigin());
 export const passwordIsConfigured = () => baseConfigured() && (!process.env.VERCEL || redisIsConfigured()) && validPasswordHash(process.env.ADMIN_PASSWORD_HASH ?? '');
+export function passwordSetupMessage() {
+  const issues:string[]=[];
+  if (!process.env.NEXTAUTH_SECRET || process.env.NEXTAUTH_SECRET.length<32) issues.push('The session secret must contain at least 32 characters.');
+  if (!configuredAdminOrigin()) issues.push('The website address must be https://www.ubentertainments.in.');
+  if (process.env.VERCEL && !redisIsConfigured()) issues.push('Connect the online content storage to this deployment.');
+  if (!validPasswordHash(process.env.ADMIN_PASSWORD_HASH ?? '')) issues.push('The saved password hash has an invalid format. Copy only its value from the setup file.');
+  return issues.join(' ');
+}
 export const googleIsConfigured = () => baseConfigured() && Boolean(process.env.GOOGLE_CLIENT_ID?.trim() && process.env.GOOGLE_CLIENT_SECRET?.trim());
 export const authIsConfigured = () => passwordIsConfigured() || googleIsConfigured();
 const currentPasswordVersion = () => passwordVersion(process.env.ADMIN_PASSWORD_HASH ?? '');
